@@ -40,6 +40,16 @@ pinMode(G, OUTPUT);
    launchServo.write(mot_min);  
    
 }
+void Zero() {
+  digitalWrite(A, HIGH);
+  digitalWrite(B, HIGH);
+digitalWrite(C, HIGH);
+digitalWrite(D, HIGH);
+digitalWrite(E, HIGH);
+digitalWrite(DP, LOW);
+digitalWrite(F, HIGH);
+digitalWrite(G, LOW);
+}
 
 void One ()
 {
@@ -109,7 +119,17 @@ Serial.println(results.value, HEX);
   if (results.value==0xCB3CC07F)
 { //Code to turn the LED ON/OFF
     if(before==0){ // if the LED was turned off, then we turn it on 
-   
+   Five();
+   delay(1000);
+   Four();
+   delay(1000);
+   Three();
+   delay(1000);
+   Two();
+   delay(1000);
+   One();
+   delay(1000);
+Zero();
        launchServo.write(mot_max);  
       before=1; //LED is now turned on
     }
